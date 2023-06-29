@@ -1,0 +1,108 @@
+#date {
+  padding-top: 4vh;
+  font-weight: bolder;
+  text-shadow: 2px 2px 3px gray;
+  font-size: 16px;
+}
+#base {
+  position: relative;
+  left: -2px;
+  top: 20px;
+}
+#tile {
+  position: absolute;
+  top: 73px;
+  left: 100px;
+}
+#list {
+  position: absolute;
+  left: 220px;
+  top: 79px;
+}
+#whiteBoxArea {
+  padding-top: 5vh;
+}
+.whiteBox {
+  background-color: white;
+  width: 132px;
+  height: 187px;
+  border-radius: 10px;
+  box-shadow: 0 0px 20px #d0d0d0;
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.whiteBoxContent {
+  width: 105px;
+  height: 161px;
+  padding-top: 13px;
+  padding-left: 13px;
+}
+.boxDate {
+  color: #4c7343;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+.line {
+  width: 105px;
+  background-color: #bcbcbc;
+}
+.content {
+  font-size: 14px;
+  text-align: left;
+}
+#grayArea {
+  height: 548px;
+  overflow-y: scroll;
+}
+#grayArea::-webkit-scrollbar {
+  display: none;
+}
+#greenBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#calender,
+#circle,
+#data,
+#shop,
+#setting {
+  position: absolute;
+  z-index: 1;
+}
+
+#input {
+  position: absolute;
+  z-index: 2;
+}
+
+#calender {
+  left: 70px;
+  top: 600px;
+}
+
+#circle {
+  left: 163px;
+  top: 600px;
+}
+#data {
+  top: 614px;
+  left: 256px;
+}
+#input {
+  left: 169px;
+  top: 605px;
+}
+#shop {
+  bottom: 4vh;
+  left: 4vh;
+}
+#setting {
+  bottom: 4vh;
+  right: 4vh;
+}
