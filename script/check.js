@@ -13,7 +13,6 @@ function correctionContent() {
 
   if (contentTextarea.getAttribute("readonly")) {
     contentTextarea.removeAttribute("readonly");
-
     localStorage.setItem("saveText", document.getElementById("content").value);
   } else {
     contentTextarea.setAttribute("readonly", "readonly");
