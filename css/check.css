@@ -54,19 +54,39 @@
   box-shadow: 0 3px 4px 0px lightgray;
 }
 #content {
-text-align: left;
+  text-align: left;
   font-size: 16px;
   width: 238px;
-    height: 300px;
+  height: 300px;
   border: none;
   resize: none;
-  
 }
 #content:focus {
-    outline: none;
-  }
+  outline: none;
+}
 #grayArea {
   height: 448px;
+}
+#commentInput {
+  width: 318px;
+  height: 79px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+#commentSave {
+  float: right;
+  margin-right: 10px;
+  margin-top: 40px;
+  width: 30px;
+  height: 30px;
+}
+#commentSave2 {
+  float: right;
+  margin-right: -23px;
+  margin-top: 48px;
+  width: 13.5px;
+  height: 13.5px;
 }
 #comment {
   height: 120px;
@@ -118,7 +138,7 @@ text-align: left;
 #circle,
 #data,
 #shop,
-#setting {
+#logout {
   position: absolute;
   z-index: 1;
 }
@@ -149,7 +169,13 @@ text-align: left;
   bottom: 4vh;
   left: 4vh;
 }
-#setting {
+#logout {
+  width: 52px;
+  height: 25px;
+  color: #fffbd9;
+  background: #4c7343;
+  font-size: 12px;
   bottom: 4vh;
   right: 4vh;
+  padding-top: 5px;
 }

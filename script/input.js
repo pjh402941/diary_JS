@@ -20,7 +20,9 @@ function saveDiary() {
   const currentDate  =
     year + "년 " + month + "월 " + date + "일 " + getTodayLabel(day) + "요일";
   const text = document.getElementById("content").value;
-  window.location.href = "main.html?var1=" + currentDate  + "&var2=" + text;
-  date = "";
-  text = "";
+  
+  localStorage.setItem('saveDate', currentDate);
+  localStorage.setItem('saveText', text);
+
+  window.location.href = "main.html";
 }

@@ -28,13 +28,11 @@ function goToListPage() {
 
 //받아온 값으로 새로운 화이트박스 생성
 document.addEventListener("DOMContentLoaded", function () {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const var1 = urlParams.get("var1");
-  const var2 = urlParams.get("var2");
+  const diaryDate = localStorage.getItem("saveDate");
+  const diaryText = localStorage.getItem("saveText");
 
-  if (var1 && var2) {
-    createWhiteBox(var1, var2);
+  if (diaryText && diaryDate) {
+    createWhiteBox(diaryDate, diaryText);
   }
 });
 
@@ -47,12 +45,12 @@ function createWhiteBox(var1, var2) {
   whiteBoxContent.className = "whiteBoxContent";
   const boxDate = document.createElement("div");
   boxDate.className = "boxDate";
-  boxDate.innerHTML = decodeURIComponent(var1); 
+  boxDate.innerHTML = var1;
   const line = document.createElement("hr");
   line.className = "line";
   const content = document.createElement("div");
   content.className = "content";
-  content.innerHTML = decodeURIComponent(var2);
+  content.innerHTML = var2;
 
   whiteBoxContent.appendChild(boxDate);
   whiteBoxContent.appendChild(line);
@@ -61,6 +59,10 @@ function createWhiteBox(var1, var2) {
   whiteBoxArea.appendChild(whiteBox);
 
   whiteBox.onclick = function () {
-    window.location.href = "check.html?var1=" + var1 + "&var2=" + var2;
+    window.location.href = "check.html";
   };
+}
+
+function goToLoginPage(){
+    window.location.href = "login.html";
 }

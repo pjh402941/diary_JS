@@ -71,7 +71,7 @@
 #circle,
 #data,
 #shop,
-#setting {
+#logout {
   position: absolute;
   z-index: 1;
 }
@@ -102,7 +102,13 @@
   bottom: 4vh;
   left: 4vh;
 }
-#setting {
-  bottom: 4vh;
-  right: 4vh;
-}
+#logout {
+    width: 52px;
+    height: 25px;
+    color: #fffbd9;
+    background: #4C7343;
+    font-size: 12px;
+    bottom: 4vh;
+    right: 4vh;
+    padding-top: 5px;
+  }

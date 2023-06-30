@@ -26,18 +26,18 @@ function goToTilePage() {
   window.location.href = "main.html";
 }
 
-//로컬스토리지에 저장된 내용 표시(화이트박스 추가)
+//받아온 값으로 새로운 화이트박스 생성
 document.addEventListener("DOMContentLoaded", function () {
-  const diaryText = localStorage.getItem("diary");
-  const diaryDate = localStorage.getItem("date");
+  const diaryDate = localStorage.getItem("saveDate");
+  const diaryText = localStorage.getItem("saveText");
 
   if (diaryText && diaryDate) {
-    createWhiteBox(diaryText, diaryDate);
+    createWhiteBox(diaryDate, diaryText);
   }
 });
 
-function createWhiteBox(diaryText, diaryDate) {
-  const whiteBoxArea = document.getElementById("whiteBoxArea");
+function createWhiteBox(var1, var2) {
+  const whiteBoxArea = document.getElementById("whiteBox");
 
   const whiteBox = document.createElement("div");
   whiteBox.className = "whiteBox";
@@ -45,17 +45,26 @@ function createWhiteBox(diaryText, diaryDate) {
   whiteBoxContent.className = "whiteBoxContent";
   const boxDate = document.createElement("div");
   boxDate.className = "boxDate";
-  boxDate.innerHTML = diaryDate;
+  boxDate.innerHTML = var1;
+  const count = document.createElement("div");
+  count.className = "count"; 
+  count.innerText = "(" + 2 + ")";
   const line = document.createElement("hr");
   line.className = "line";
-  const count = document.createElement("div");
-  content.className = "count";
+
 
   whiteBoxContent.appendChild(boxDate);
+  whiteBoxContent.appendChild(count);
   whiteBoxContent.appendChild(line);
   whiteBox.appendChild(whiteBoxContent);
   whiteBoxArea.appendChild(whiteBox);
-  whiteBoxArea.appendChild(count);
+ 
+
+  whiteBox.onclick = function () {
+    window.location.href = "check.html";
+  };
 }
 
-//수정중...
+function goToLoginPage() {
+  window.location.href = "login.html";
+}
