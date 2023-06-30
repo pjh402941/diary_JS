@@ -17,6 +17,7 @@ function correctionContent() {
     localStorage.setItem("saveText", document.getElementById("content").value);
   } else {
     contentTextarea.setAttribute("readonly", "readonly");
+    window.location.href = "main.html";
   }
 }
 //삭제
