@@ -27,42 +27,61 @@ function goToListPage() {
 }
 
 //받아온 값으로 새로운 화이트박스 생성
-document.addEventListener("DOMContentLoaded", function () {
-  const diaryDate = localStorage.getItem("saveDate");
-  const diaryText = localStorage.getItem("saveText");
+let memos = JSON.parse(sessionStorage.getItem("memos"));
+memos = memos ?? [];
 
-  if (diaryText && diaryDate) {
-    createWhiteBox(diaryDate, diaryText);
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.getElementById("whiteBoxArea");
+
+  if (elements === null) {
+    console.error("content-list element not found");
+    return;
   }
+
+  elements.innerHTML = ""; // 기존의 메모들을 초기화
+
+  if (!memos || memos.length === 0) {
+    console.log("No memos found");
+    return;
+  }
+
+  for (let i = memos.length - 1; i >= 0; i--) {
+    let whiteBox = document.createElement("div");
+    whiteBox.classList.add("white-box");
+    whiteBox.dataset.id = i; // 데이터셋에 id 속성 추가
+
+    let box = document.createElement("div");
+    box.classList.add("whiteBox");
+
+    let date = document.createElement("div");
+    date.textContent = memos[i].date;
+    date.classList.add("boxDate");
+
+    let line = document.createElement("div");
+    line.classList.add("line");
+
+    let content = document.createElement("div");
+    content.setAttribute("id", "content" + (i + 1));
+    content.textContent = memos[i].content;
+    content.classList.add("whiteBoxContent");
+
+    box.append(date, line, content);
+    whiteBox.append(box);
+    elements.append(whiteBox);
+  }
+
+  const whiteBoxes = document.querySelectorAll(".white-box");
+  whiteBoxes.forEach(function (whiteBox) {
+    whiteBox.addEventListener("click", onWhiteBoxClick);
+  });
 });
 
-function createWhiteBox(var1, var2) {
-  const whiteBoxArea = document.getElementById("whiteBoxArea");
-
-  const whiteBox = document.createElement("div");
-  whiteBox.className = "whiteBox";
-  const whiteBoxContent = document.createElement("div");
-  whiteBoxContent.className = "whiteBoxContent";
-  const boxDate = document.createElement("div");
-  boxDate.className = "boxDate";
-  boxDate.innerHTML = var1;
-  const line = document.createElement("hr");
-  line.className = "line";
-  const content = document.createElement("div");
-  content.className = "content";
-  content.innerHTML = var2;
-
-  whiteBoxContent.appendChild(boxDate);
-  whiteBoxContent.appendChild(line);
-  whiteBoxContent.appendChild(content);
-  whiteBox.appendChild(whiteBoxContent);
-  whiteBoxArea.appendChild(whiteBox);
-
-  whiteBox.onclick = function () {
-    window.location.href = "check.html";
-  };
+function onWhiteBoxClick() {
+  const whiteBoxId = this.dataset.id;
+  window.location.href = "/pages/check.html?id=" + whiteBoxId;
 }
 
-function goToLoginPage(){
-    window.location.href = "login.html";
+//로그아웃
+function goToLoginPage() {
+  window.location.href = "login.html";
 }

@@ -27,44 +27,67 @@ function goToTilePage() {
 }
 
 //받아온 값으로 새로운 화이트박스 생성
-document.addEventListener("DOMContentLoaded", function () {
-  const diaryDate = localStorage.getItem("saveDate");
-  const diaryText = localStorage.getItem("saveText");
+let memos = JSON.parse(sessionStorage.getItem("memos"));
+memos = memos ?? [];
 
-  if (diaryText && diaryDate) {
-    createWhiteBox(diaryDate, diaryText);
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.getElementById("whiteBoxArea");
+
+  if (elements === null) {
+    console.error("content-list element not found");
+    return;
   }
+
+  elements.innerHTML = ""; // 기존의 메모들을 초기화
+
+  if (!memos || memos.length === 0) {
+    console.log("No memos found");
+    return;
+  }
+
+  const comments = JSON.parse(sessionStorage.getItem("comments")) || [];
+
+  for (let i = memos.length - 1; i >= 0; i--) {
+    let whiteBox = document.createElement("div");
+    whiteBox.classList.add("white-box");
+    whiteBox.dataset.id = memos[i].id; // whiteBox에 dataset.id 설정
+
+    let box = document.createElement("div");
+    box.classList.add("whiteBox");
+
+    let content = document.createElement("div");
+    content.classList.add("whiteBoxContent");
+
+    let date = document.createElement("div");
+    date.textContent = memos[i].date;
+    date.classList.add("boxDate");
+
+    let commentCount = (comments[i] && comments[i].length) || 0; // 댓글 수 가져오기
+
+    let count = document.createElement("div");
+    count.textContent = "(" + commentCount + ")";
+    count.classList.add("count");
+
+    let line = document.createElement("div");
+    line.classList.add("line");
+
+    box.append(content, date, count, line);
+    whiteBox.append(box);
+    elements.append(whiteBox);
+  }
+
+  const whiteBoxes = document.querySelectorAll(".white-box");
+  whiteBoxes.forEach(function (whiteBox) {
+    whiteBox.addEventListener("click", onWhiteBoxClick);
+  });
 });
 
-function createWhiteBox(var1, var2) {
-  const whiteBoxArea = document.getElementById("whiteBox");
-
-  const whiteBox = document.createElement("div");
-  whiteBox.className = "whiteBox";
-  const whiteBoxContent = document.createElement("div");
-  whiteBoxContent.className = "whiteBoxContent";
-  const boxDate = document.createElement("div");
-  boxDate.className = "boxDate";
-  boxDate.innerHTML = var1;
-  const count = document.createElement("div");
-  count.className = "count"; 
-  count.innerText = "(" + 2 + ")";
-  const line = document.createElement("hr");
-  line.className = "line";
-
-
-  whiteBoxContent.appendChild(boxDate);
-  whiteBoxContent.appendChild(count);
-  whiteBoxContent.appendChild(line);
-  whiteBox.appendChild(whiteBoxContent);
-  whiteBoxArea.appendChild(whiteBox);
- 
-
-  whiteBox.onclick = function () {
-    window.location.href = "check.html";
-  };
+function onWhiteBoxClick() {
+  const whiteBoxId = this.dataset.id;
+  window.location.href = "/pages/check.html?id=" + whiteBoxId;
 }
 
+//로그아웃
 function goToLoginPage() {
   window.location.href = "login.html";
 }

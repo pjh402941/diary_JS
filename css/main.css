@@ -11,7 +11,7 @@
 }
 #tile {
   position: absolute;
-  top: 73px;
+  top: 78px;
   left: 100px;
 }
 #list {
@@ -103,12 +103,12 @@
   left: 4vh;
 }
 #logout {
-    width: 52px;
-    height: 25px;
-    color: #fffbd9;
-    background: #4C7343;
-    font-size: 12px;
-    bottom: 4vh;
-    right: 4vh;
-    padding-top: 5px;
-  }
+  width: 52px;
+  height: 25px;
+  color: #fffbd9;
+  background: #4c7343;
+  font-size: 12px;
+  bottom: 4vh;
+  right: 4vh;
+  padding-top: 5px;
+}
