@@ -4,14 +4,6 @@ let today = new Date();
 let year = today.getFullYear();
 let month = today.getMonth() + 1;
 let date = today.getDate();
-let day = today.getDay();
-
-function getTodayLabel(num) {
-  var week = new Array("일", "월", "화", "수", "목", "금", "토");
-  var todayLabel = week[num];
-
-  return todayLabel;
-}
 
 document.getElementById("date").innerHTML =
   year + "년 " + month + "월 " + date + "일 ";
@@ -24,6 +16,11 @@ function goToInputPage() {
 //리스트 탭으로 변경
 function goToListPage() {
   window.location.href = "mainList.html";
+}
+
+//로그아웃
+function goToLoginPage() {
+  window.location.href = "login.html";
 }
 
 //받아온 값으로 새로운 화이트박스 생성
@@ -57,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     date.textContent = memos[i].date;
     date.classList.add("boxDate");
 
-    let line = document.createElement("div");
+    let line = document.createElement("hr");
     line.classList.add("line");
 
     let content = document.createElement("div");
@@ -79,9 +76,4 @@ document.addEventListener("DOMContentLoaded", function () {
 function onWhiteBoxClick() {
   const whiteBoxId = this.dataset.id;
   window.location.href = "/pages/check.html?id=" + whiteBoxId;
-}
-
-//로그아웃
-function goToLoginPage() {
-  window.location.href = "login.html";
 }

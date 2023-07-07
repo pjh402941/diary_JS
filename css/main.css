@@ -26,9 +26,8 @@
   height: 187px;
   border-radius: 10px;
   box-shadow: 0 0px 20px #d0d0d0;
-  display: inline-block;
   margin-left: 11%;
-  margin-bottom: 20px;
+  margin-bottom: 7%;
   float: left;
 }
 .whiteBoxContent {
@@ -44,6 +43,8 @@
   font-weight: bold;
   font-size: 15px;
   text-align: left;
+  padding-top: 7%;
+  padding-left: 13%;
 }
 
 .line {

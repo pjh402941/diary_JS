@@ -26,6 +26,11 @@ function goToTilePage() {
   window.location.href = "main.html";
 }
 
+//로그아웃
+function goToLoginPage() {
+  window.location.href = "login.html";
+}
+
 //받아온 값으로 새로운 화이트박스 생성
 let memos = JSON.parse(sessionStorage.getItem("memos"));
 memos = memos ?? [];
@@ -82,9 +87,4 @@ document.addEventListener("DOMContentLoaded", function () {
 function onWhiteBoxClick() {
   const whiteBoxId = this.dataset.id;
   window.location.href = "/pages/check.html?id=" + whiteBoxId;
-}
-
-//로그아웃
-function goToLoginPage() {
-  window.location.href = "login.html";
 }
