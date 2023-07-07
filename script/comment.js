@@ -31,6 +31,13 @@ function saveComment() {
 
   commentBox.append(profileImg, name, commentContent);
   elements.prepend(commentBox);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const commentId = urlParams.get("id");
+
+  const commentCount = comments[commentId].length;
+
+  document.getElementById("count").innerHTML = "댓글(" + commentCount + ")";
 }
 
 const elements = document.getElementById("commentBoxArea");
