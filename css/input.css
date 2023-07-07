@@ -1,0 +1,86 @@
+#date {
+  padding-top: 4vh;
+  font-weight: bolder;
+  color: #4c7343;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+}
+#whiteBoxArea {
+  padding-top: 110px;
+  margin-left: 36px;
+}
+#whiteBox {
+  background-color: white;
+  width: 318px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0px 20px #d0d0d0;
+  overflow-y: scroll;
+}
+#whiteBox::-webkit-scrollbar {
+  display: none;
+}
+#whiteBoxContent {
+  width: 238px;
+  padding-top: 20px;
+  padding-left: 40px;
+}
+#boxDate {
+  color: #4c7343;
+  font-weight: bold;
+}
+
+#line {
+  width: 238px;
+  background-color: #bcbcbc;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 4px 0px lightgray;
+}
+#content {
+  text-align: left;
+  font-size: 16px;
+  width: 238px;
+  height: 350px;
+  border: none;
+  resize: none;
+}
+#content:focus {
+  outline: none;
+}
+#grayArea {
+  height: 448px;
+}
+
+#greenBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+#greenArea{
+  position: fixed;
+  bottom: 0%;
+  width: 390px;
+  height: 20%;
+}
+#circle,
+#save,
+#image {
+  z-index: 1;
+  position: absolute;
+}
+#circle {
+  left: 43%;
+}
+
+#save {
+  left: 45.7%;
+  top: 13%
+}
+
+#image {
+  bottom: 6vh;
+  left: 4vh;
+}
