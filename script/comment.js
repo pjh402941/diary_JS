@@ -33,7 +33,7 @@ function saveComment() {
   elements.prepend(commentBox);
 }
 
-const elements = document.getElementById("commentBoxArea"); // Document 대문자로 수정
+const elements = document.getElementById("commentBoxArea");
 elements.innerHTML = "";
 
 //댓글 생성
@@ -58,10 +58,10 @@ for (let i = comments[memoId].length - 1; i >= 0; i--) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const commentId = urlParams.get("id");
+  const urlParams = new URLSearchParams(window.location.search);
+  const commentId = urlParams.get("id");
 
-    const commentCount = comments[commentId].length;
+  const commentCount = comments[commentId].length;
 
-    document.getElementById("count").innerHTML = "댓글(" + commentCount + ")";
-  });
+  document.getElementById("count").innerHTML = "댓글(" + commentCount + ")";
+});
